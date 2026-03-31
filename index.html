@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХимРеагент СПб — Химические реагенты в Санкт-Петербурге</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Верхняя информационная панель -->
+<div class="top-bar">
+    <div class="container top-bar-inner">
+        <div class="top-bar-left">
+            <span>📍 Санкт-Петербург, Московский пр., д. 118, лит. А</span>
+            <span>🕐 Пн–Пт: 8:00–18:00</span>
+        </div>
+        <div class="top-bar-right">
+            <a href="tel:+78125551234">📞 +7 (812) 555-12-34</a>
+            <a href="mailto:info@chimreagent-spb.ru">✉ info@chimreagent-spb.ru</a>
+        </div>
+    </div>
+</div>
+
+<!-- Шапка -->
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <div class="logo-icon">⚗️</div>
+            <div>
+                <h1 class="logo-title">ХимРеагент СПб</h1>
+                <p class="logo-sub">Химические реагенты и лабораторные материалы</p>
+            </div>
+        </div>
+        <nav class="nav" id="mainNav">
+            <a href="#home" class="nav-link active">Главная</a>
+            <a href="#catalog" class="nav-link">Каталог</a>
+            <a href="#sds" class="nav-link">Паспорта SDS</a>
+            <a href="#certificates" class="nav-link">Сертификаты</a>
+            <a href="#batches" class="nav-link">Партии</a>
+            <a href="#prices" class="nav-link">Цены</a>
+            <a href="#about" class="nav-link">О компании</a>
+            <a href="#contact" class="nav-link">Контакты</a>
+        </nav>
+        <button class="burger" id="burger">☰</button>
+    </div>
+</header>
+
+<!-- Герой-секция -->
+<section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <h2 class="hero-title">Надёжный поставщик химических реагентов <br>в Санкт-Петербурге</h2>
+        <p class="hero-text">Более 2 500 наименований реагентов с паспортами безопасности (SDS), сертификатами качества и полной прослеживаемостью партий. Работаем с 2007 года.</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-num" data-target="2547">0</span>
+                <span class="stat-label">Наименований</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" data-target="1283">0</span>
+                <span class="stat-label">Клиентов</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" data-target="17">0</span>
+                <span class="stat-label">Лет на рынке</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" data-target="98">0</span>
+                <span class="stat-label">% в срок</span>
+            </div>
+        </div>
+        <div class="hero-buttons">
+            <a href="#catalog" class="btn btn-primary">Перейти в каталог</a>
+            <a href="#contact" class="btn btn-outline">Запросить КП</a>
+        </div>
+    </div>
+</section>
+
+<!-- Поиск -->
+<section class="search-section">
+    <div class="container">
+        <div class="search-box">
+            <h3>🔍 Быстрый поиск реагента</h3>
+            <div class="search-row">
+                <input type="text" id="searchInput" placeholder="Введите название, CAS-номер или формулу..." class="search-input">
+                <select id="searchCategory" class="search-select">
+                    <option value="all">Все категории</option>
+                    <option value="acids">Кислоты</option>
+                    <option value="bases">Основания</option>
+                    <option value="salts">Соли</option>
+                    <option value="solvents">Растворители</option>
+                    <option value="indicators">Индикаторы</option>
+                    <option value="standards">Стандарт-титры</option>
+                    <option value="organic">Органические</option>
+                </select>
+                <button class="btn btn-primary" onclick="performSearch()">Найти</button>
+            </div>
+            <div class="search-tags">
+                <span>Популярные:</span>
+                <button class="tag" onclick="quickSearch('Серная кислота')">Серная кислота</button>
+                <button class="tag" onclick="quickSearch('NaOH')">NaOH</button>
+                <button class="tag" onclick="quickSearch('Ацетон')">Ацетон</button>
+                <button class="tag" onclick="quickSearch('Этанол')">Этанол</button>
+                <button class="tag" onclick="quickSearch('HCl')">HCl</button>
+                <button class="tag" onclick="quickSearch('Фенолфталеин')">Фенолфталеин</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Каталог -->
+<section class="section" id="catalog">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Каталог реагентов</h2>
+            <p class="section-sub">Полный ассортимент химических реагентов с квалификацией от «ч» до «ос.ч.»</p>
+        </div>
+
+        <!-- Фильтры -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="acids">Кислоты</button>
+            <button class="filter-btn" data-filter="bases">Основания</button>
+            <button class="filter-btn" data-filter="salts">Соли</button>
+            <button class="filter-btn" data-filter="solvents">Растворители</button>
+            <button class="filter-btn" data-filter="indicators">Индикаторы</button>
+            <button class="filter-btn" data-filter="organic">Органические</button>
+            <button class="filter-btn" data-filter="standards">Стандарт-титры</button>
+        </div>
+
+        <!-- Таблица каталога -->
+        <div class="table-wrapper">
+            <table class="data-table" id="catalogTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Артикул ↕</th>
+                        <th onclick="sortTable(1)">Наименование ↕</th>
+                        <th>Формула</th>
+                        <th>CAS №</th>
+                        <th>Квалификация</th>
+                        <th>Фасовка</th>
+                        <th onclick="sortTable(6)">Цена, ₽ ↕</th>
+                        <th>Наличие</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="catalogBody">
+                    <!-- Заполняется JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination" id="catalogPagination"></div>
+    </div>
+</section>
+
+<!-- Паспорта безопасности SDS -->
+<section class="section section-alt" id="sds">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Паспорта безопасности (SDS)</h2>
+            <p class="section-sub">Safety Data Sheets в соответствии с ГОСТ 30333-2007 и регламентом REACH (EC) №1907/2006</p>
+        </div>
+
+        <div class="sds-info-grid">
+            <div class="sds-info-card">
+                <div class="sds-info-icon">📋</div>
+                <h4>16 разделов</h4>
+                <p>Каждый SDS содержит полную информацию: идентификация, опасности, состав, первая помощь, противопожарные меры</p>
+            </div>
+            <div class="sds-info-card">
+                <div class="sds-info-icon">🌍</div>
+                <h4>GHS классификация</h4>
+                <p>Согласованная на глобальном уровне система классификации и маркировки химических веществ</p>
+            </div>
+            <div class="sds-info-card">
+                <div class="sds-info-icon">📅</div>
+                <h4>Актуальные версии</h4>
+                <p>Регулярное обновление паспортов безопасности в соответствии с изменениями законодательства</p>
+            </div>
+            <div class="sds-info-card">
+                <div class="sds-info-icon">📥</div>
+                <h4>Скачивание PDF</h4>
+                <p>Все паспорта доступны для скачивания в формате PDF на русском и английском языках</p>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="data-table" id="sdsTable">
+                <thead>
+                    <tr>
+                        <th>Наименование</th>
+                        <th>CAS №</th>
+                        <th>Класс опасности GHS</th>
+                        <th>Сигнальное слово</th>
+                        <th>Пиктограммы</th>
+                        <th>Версия SDS</th>
+                        <th>Дата ревизии</th>
+                        <th>Скачать</th>
+                    </tr>
+                </thead>
+                <tbody id="sdsBody">
+                    <!-- Заполняется JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Подробный SDS -->
+        <div class="sds-detail-card" id="sdsDetail" style="display:none;">
+            <button class="close-btn" onclick="closeSdsDetail()">✕</button>
+            <h3 id="sdsDetailTitle"></h3>
+            <div class="sds-sections" id="sdsDetailContent"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Сертификаты -->
+<section class="section" id="certificates">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Сертификаты качества</h2>
+            <p class="section-sub">Сертификаты анализа (CoA), соответствия и аккредитации</p>
+        </div>
+
+        <div class="cert-types">
+            <div class="cert-type-card">
+                <div class="cert-icon">🏅</div>
+                <h4>Сертификат анализа (CoA)</h4>
+                <p>Документ, подтверждающий соответствие каждой партии реагента заявленным характеристикам. Содержит результаты лабораторных испытаний.</p>
+                <ul class="cert-details">
+                    <li>Содержание основного вещества</li>
+                    <li>Примеси и их допустимые пределы</li>
+                    <li>Физико-химические показатели</li>
+                    <li>Методы испытаний по ГОСТ</li>
+                </ul>
+            </div>
+            <div class="cert-type-card">
+                <div class="cert-icon">📜</div>
+                <h4>Сертификат соответствия</h4>
+                <p>Подтверждает соответствие продукции требованиям ГОСТ, ТУ и технических регламентов Таможенного союза.</p>
+                <ul class="cert-details">
+                    <li>ГОСТ 4204-77, ГОСТ 4328-77</li>
+                    <li>ТР ТС 015/2011</li>
+                    <li>ISO 9001:2015</li>
+                    <li>Аккредитация ФГИС Росаккредитации</li>
+                </ul>
+            </div>
+            <div class="cert-type-card">
+                <div class="cert-icon">🔬</div>
+                <h4>Лабораторная аккредитация</h4>
+                <p>Наша лаборатория аккредитована Росаккредитацией для проведения входного контроля качества реагентов.</p>
+                <ul class="cert-details">
+                    <li>Аттестат аккредитации № RA.RU.21HX52</li>
+                    <li>Область аккредитации: 247 показателей</li>
+                    <li>Действует до 15.03.2028</li>
+                    <li>Квалифицированный персонал</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="data-table" id="certTable">
+                <thead>
+                    <tr>
+                        <th>№ сертификата</th>
+                        <th>Тип</th>
+                        <th>Реагент</th>
+                        <th>Партия</th>
+                        <th>ГОСТ / ТУ</th>
+                        <th>Дата выдачи</th>
+                        <th>Действует до</th>
+                        <th>Статус</th>
+                        <th>Скачать</th>
+                    </tr>
+                </thead>
+                <tbody id="certBody">
+                    <!-- Заполняется JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Партии -->
+<section class="section section-alt" id="batches">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Учёт партий</h2>
+            <p class="section-sub">Полная прослеживаемость: от производителя до конечного потребителя</p>
+        </div>
+
+        <div class="batch-stats-grid">
+            <div class="batch-stat">
+                <div class="batch-stat-value" data-target="342">0</div>
+                <div class="batch-stat-label">Партий на складе</div>
+            </div>
+            <div class="batch-stat">
+                <div class="batch-stat-value" data-target="89">0</div>
+                <div class="batch-stat-label">Поступило за месяц</div>
+            </div>
+            <div class="batch-stat">
+                <div class="batch-stat-value" data-target="15">0</div>
+                <div class="batch-stat-label">Производителей</div>
+            </div>
+            <div class="batch-stat">
+                <div class="batch-stat-value" data-target="100">0</div>
+                <div class="batch-stat-label">% входной контроль</div>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="data-table" id="batchTable">
+                <thead>
+                    <tr>
+                        <th>№ партии</th>
+                        <th>Реагент</th>
+                        <th>Производитель</th>
+                        <th>Дата выпуска</th>
+                        <th>Дата поступления</th>
+                        <th>Срок годности</th>
+                        <th>Объём партии</th>
+                        <th>Остаток</th>
+                        <th>Статус</th>
+                        <th>CoA</th>
+                    </tr>
+                </thead>
+                <tbody id="batchBody">
+                    <!-- Заполняется JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- История цен и графики -->
+<section class="section" id="prices">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Аналитика цен</h2>
+            <p class="section-sub">Мониторинг динамики цен на химические реагенты за 2020–2024 гг.</p>
+        </div>
+
+        <div class="price-controls">
+            <div class="price-control-group">
+                <label>Реагент:</label>
+                <select id="priceReagent" onchange="updateCharts()">
+                    <option value="h2so4">Серная кислота (H₂SO₄)</option>
+                    <option value="naoh">Натрия гидроксид (NaOH)</option>
+                    <option value="hcl">Соляная кислота (HCl)</option>
+                    <option value="acetone">Ацетон (CH₃COCH₃)</option>
+                    <option value="ethanol">Этанол (C₂H₅OH)</option>
+                    <option value="nacl">Натрия хлорид (NaCl)</option>
+                </select>
+            </div>
+            <div class="price-control-group">
+                <label>Период:</label>
+                <select id="pricePeriod" onchange="updateCharts()">
+                    <option value="1y">1 год</option>
+                    <option value="2y" selected>2 года</option>
+                    <option value="5y">5 лет</option>
+                </select>
+            </div>
+            <div class="price-control-group">
+                <label>Тип графика:</label>
+                <select id="chartType" onchange="updateCharts()">
+                    <option value="line">Линейный</option>
+                    <option value="bar">Столбчатый</option>
+                    <option value="area">Область</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Графики -->
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h4>📈 Динамика цены</h4>
+                <div class="chart-container">
+                    <canvas id="priceChart"></canvas>
+                </div>
+                <div class="chart-legend" id="priceLegend"></div>
+            </div>
+            <div class="chart-card">
+                <h4>📊 Объём продаж (кг/мес)</h4>
+                <div class="chart-container">
+                    <canvas id="volumeChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h4>🥧 Структура продаж по категориям</h4>
+                <div class="chart-container">
+                    <canvas id="pieChart"></canvas>
+                </div>
+                <div class="pie-legend" id="pieLegend"></div>
+            </div>
+            <div class="chart-card">
+                <h4>📉 Сравнение цен по квалификациям</h4>
+                <div class="chart-container">
+                    <canvas id="compareChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Таблица истории цен -->
+        <h3 class="subsection-title">Детализация по месяцам</h3>
+        <div class="table-wrapper">
+            <table class="data-table" id="priceHistoryTable">
+                <thead>
+                    <tr>
+                        <th>Период</th>
+                        <th>Мин. цена, ₽/кг</th>
+                        <th>Средн. цена, ₽/кг</th>
+                        <th>Макс. цена, ₽/кг</th>
+                        <th>Изменение</th>
+                        <th>Объём продаж, кг</th>
+                    </tr>
+                </thead>
+                <tbody id="priceHistoryBody">
+                    <!-- Заполняется JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- О компании -->
+<section class="section section-alt" id="about">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">О компании</h2>
+            <p class="section-sub">ООО «ХимРеагент СПб» — ведущий поставщик химических реагентов в Северо-Западном регионе</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Наша история</h3>
+                <p>Компания основана в 2007 году в Санкт-Петербурге группой специалистов-химиков с многолетним опытом работы в отрасли. За 17 лет мы выросли из небольшого склада на Васильевском острове в крупнейшего регионального дистрибьютора химических реагентов.</p>
+                
+                <h3>Наши преимущества</h3>
+                <div class="advantages-grid">
+                    <div class="advantage">
+                        <span class="adv-icon">🏭</span>
+                        <div>
+                            <strong>Собственный склад 2 400 м²</strong>
+                            <p>Отапливаемый склад с температурным контролем на Московском проспекте</p>
+                        </div>
+                    </div>
+                    <div class="advantage">
+                        <span class="adv-icon">🔬</span>
+                        <div>
+                            <strong>Входной контроль качества</strong>
+                            <p>Аккредитованная лаборатория проверяет 100% поступающих партий</p>
+                        </div>
+                    </div>
+                    <div class="advantage">
+                        <span class="adv-icon">🚛</span>
+                        <div>
+                            <strong>Собственный автопарк</strong>
+                            <p>ADR-сертифицированные автомобили для перевозки опасных грузов</p>
+                        </div>
+                    </div>
+                    <div class="advantage">
+                        <span class="adv-icon">📋</span>
+                        <div>
+                            <strong>Полный документооборот</strong>
+                            <p>SDS, CoA, сертификаты, паспорта качества на каждую партию</p>
+                        </div>
+                    </div>
+                    <div class="advantage">
+                        <span class="adv-icon">⚡</span>
+                        <div>
+                            <strong>Быстрая доставка</strong>
+                            <p>Отгрузка в день заказа, доставка по СПб за 24 часа</p>
+                        </div>
+                    </div>
+                    <div class="advantage">
+                        <span class="adv-icon">💼</span>
+                        <div>
+                            <strong>Работа по 44-ФЗ и 223-ФЗ</strong>
+                            <p>Опыт участия в государственных закупках, аккредитация на ЭТП</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Наши клиенты</h3>
+                <div class="clients-logos">
+                    <div class="client-logo">СПбГУ</div>
+                    <div class="client-logo">ИТМО</div>
+                    <div class="client-logo">Политех</div>
+                    <div class="client-logo">ЛЭТИ</div>
+                    <div class="client-logo">Водоканал СПб</div>
+                    <div class="client-logo">ГУП «ТЭК»</div>
+                    <div class="client-logo">НИИ ОЧ</div>
+                    <div class="client-logo">Газпром Нефть</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Лицензии компании -->
+        <div class="licenses-grid">
+            <div class="license-card">
+                <div class="license-icon">📄</div>
+                <h4>Лицензия на обращение с хим. веществами</h4>
+                <p>№ 78.01.06.001.Л.000234.05.19</p>
+                <span class="license-date">Бессрочная</span>
+            </div>
+            <div class="license-card">
+                <div class="license-icon">🛡️</div>
+                <h4>Лицензия на перевозку опасных грузов</h4>
+                <p>№ АМ-78-002156</p>
+                <span class="license-date">до 12.09.2026</span>
+            </div>
+            <div class="license-card">
+                <div class="license-icon">✅</div>
+                <h4>ISO 9001:2015</h4>
+                <p>Сертификат № RU.04ЖКХ1.С00847</p>
+                <span class="license-date">до 20.11.2026</span>
+            </div>
+            <div class="license-card">
+                <div class="license-icon">🏆</div>
+                <h4>Членство в РХО им. Менделеева</h4>
+                <p>Свидетельство № 4521-СПб</p>
+                <span class="license-date">Бессрочное</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Контакты -->
+<section class="section" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Контакты</h2>
+            <p class="section-sub">Свяжитесь с нами для заказа реагентов или получения консультации</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h4>📍 Адрес</h4>
+                    <p>196084, Санкт-Петербург,<br>Московский пр., д. 118, лит. А,<br>офис 312 (3 этаж)</p>
+                    <p class="small-text">Метро «Московские ворота», 5 мин пешком</p>
+                </div>
+                <div class="contact-card">
+                    <h4>📞 Телефоны</h4>
+                    <p><a href="tel:+78125551234">+7 (812) 555-12-34</a> — отдел продаж</p>
+                    <p><a href="tel:+78125551235">+7 (812) 555-12-35</a> — склад</p>
+                    <p><a href="tel:+78125551236">+7 (812) 555-12-36</a> — бухгалтерия</p>
+                </div>
+                <div class="contact-card">
+                    <h4>✉ Email</h4>
+                    <p><a href="mailto:info@chimreagent-spb.ru">info@chimreagent-spb.ru</a></p>
+                    <p><a href="mailto:sales@chimreagent-spb.ru">sales@chimreagent-spb.ru</a></p>
+                    <p><a href="mailto:docs@chimreagent-spb.ru">docs@chimreagent-spb.ru</a></p>
+                </div>
+                <div class="contact-card">
+                    <h4>🏢 Реквизиты</h4>
+                    <p>ООО «ХимРеагент СПб»</p>
+                    <p>ИНН: 7810432198</p>
+                    <p>КПП: 781001001</p>
+                    <p>ОГРН: 1077847165432</p>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+                    <h3>Отправить запрос</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ваше имя *</label>
+                            <input type="text" required placeholder="Иванов Пётр Сергеевич">
+                        </div>
+                        <div class="form-group">
+                            <label>Организация</label>
+                            <input type="text" placeholder="ООО «Название»">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Телефон *</label>
+                            <input type="tel" required placeholder="+7 (___) ___-__-__">
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" required placeholder="email@company.ru">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Тема запроса</label>
+                        <select>
+                            <option>Запрос коммерческого предложения</option>
+                            <option>Наличие и сроки поставки</option>
+                            <option>Запрос SDS / сертификата</option>
+                            <option>Рекламация</option>
+                            <option>Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Сообщение</label>
+                        <textarea rows="4" placeholder="Опишите ваш запрос, укажите наименования реагентов и необходимые объёмы..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Отправить запрос</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Карта -->
+        <div class="map-container">
+            <div class="map-placeholder" id="map">
+                <div class="fake-map">
+                    <div class="map-grid"></div>
+                    <div class="map-pin">
+                        <div class="pin-marker">📍</div>
+                        <div class="pin-label">ХимРеагент СПб<br><small>Московский пр., 118</small></div>
+                    </div>
+                    <div class="map-streets">
+                        <div class="street street-1">Московский проспект</div>
+                        <div class="street street-2">ул. Заставская</div>
+                        <div class="street street-3">ул. Решетникова</div>
+                        <div class="metro-icon">Ⓜ Московские ворота</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Футер -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <span>⚗️</span> ХимРеагент СПб
+                </div>
+                <p>Надёжный поставщик химических реагентов в Санкт-Петербурге с 2007 года. Полный ассортимент, документация, доставка.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Каталог</h4>
+                <a href="#">Кислоты</a>
+                <a href="#">Основания</a>
+                <a href="#">Соли</a>
+                <a href="#">Растворители</a>
+                <a href="#">Индикаторы</a>
+                <a href="#">Стандарт-титры</a>
+            </div>
+            <div class="footer-col">
+                <h4>Документация</h4>
+                <a href="#">Паспорта безопасности</a>
+                <a href="#">Сертификаты анализа</a>
+                <a href="#">Сертификаты соответствия</a>
+                <a href="#">Лицензии</a>
+            </div>
+            <div class="footer-col">
+                <h4>Информация</h4>
+                <a href="#">О компании</a>
+                <a href="#">Доставка и оплата</a>
+                <a href="#">Условия хранения</a>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2007–2024 ООО «ХимРеагент СПб». Все права защищены. ИНН 7810432198 | ОГРН 1077847165432</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Модальное окно -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+        <button class="close-btn" onclick="closeModal()">✕</button>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<!-- Кнопка наверх -->
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+<!-- Toast уведомления -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
